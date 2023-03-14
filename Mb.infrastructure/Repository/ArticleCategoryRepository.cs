@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mb.Application.contracts.ArticaleCategory;
 using Mb.Domain;
 using Mb.Domain.Repository;
 
@@ -25,6 +26,16 @@ namespace Mb.infrastructure.Repository
         public void Create(ArticleCategory command)
         {
             _context.ArticleCategories.Add(command);
+            Save();
+        }
+
+        public ArticleCategory GetBy(long id)
+        {
+            return _context.ArticleCategories.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Save()
+        {
             _context.SaveChanges();
         }
     }

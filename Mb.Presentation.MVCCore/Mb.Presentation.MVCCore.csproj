@@ -6,4 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\vendor\font-awesome\less\" />
+    <Folder Include="wwwroot\vendor\font-awesome\scss\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mb.Application.contracts\Mb.Application.contracts.csproj" />
+    <ProjectReference Include="..\Mb.Infrastructure.Core\Mb.Infrastructure.Core.csproj" />
+  </ItemGroup>
+
 </Project>

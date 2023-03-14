@@ -1,9 +1,14 @@
+using Mb.Infrastructure.Core;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
+
+
+Bootstrapper.Config(builder.Services, builder.Configuration.GetConnectionString("MasterBlogger"));
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -22,4 +27,7 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+app.MapDefaultControllerRoute();
+
 app.Run();
+

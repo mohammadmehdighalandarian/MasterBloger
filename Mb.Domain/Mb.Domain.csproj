@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Mb.Application.contracts\Mb.Application.contracts.csproj" />
+  </ItemGroup>
+
 </Project>
