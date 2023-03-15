@@ -10,13 +10,13 @@ namespace Mb.Infrastructure.Core
 {
     public class Bootstrapper
     {
-        public static void Config(IServiceCollection services, string? connectionString)
+        public static void Config(IServiceCollection service, string connectionString)
         {
-            services.AddTransient<IArticleCategoryApplication, ArticleCategoryApplication>();
-            services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
+            service.AddTransient<IArticleCategoryApplication, ArticleCategoryApplication>();
+            service.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
 
 
-            services.AddDbContext<MasterBloggerContext>(options =>
+            service.AddDbContext<MasterBloggerContext>(options =>
                 options.UseSqlServer(connectionString));
 
         }

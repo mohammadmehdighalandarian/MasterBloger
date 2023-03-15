@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Mb.Application.contracts.ArticaleCategory;
-
-namespace Mb.Domain.ArticleCategoryAgg.Repository
+﻿namespace Mb.Domain.ArticleCategoryAgg.Repository
 {
     public interface IArticleCategoryRepository
     {
@@ -16,6 +9,8 @@ namespace Mb.Domain.ArticleCategoryAgg.Repository
         ArticleCategory GetBy(long id);
 
         void Save();
+
+        bool ArticleCategoryExist(string title);
 
     }
 }

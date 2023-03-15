@@ -38,5 +38,10 @@ namespace Mb.infrastructure.Repository
         {
             _context.SaveChanges();
         }
+
+        public bool ArticleCategoryExist(string title)
+        {
+            return _context.ArticleCategories.Any(x => x.Title == title);
+        }
     }
 }

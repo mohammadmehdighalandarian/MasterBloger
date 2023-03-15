@@ -1,11 +1,14 @@
 ﻿using Mb.Application.contracts.ArticaleCategory;
-using Mb.Domain.Repository;
+using Mb.Domain.ArticleCategoryAgg;
+using Mb.Domain.ArticleCategoryAgg.Repository;
+using Mb.Domain.ArticleCategoryAgg.Services;
 
 namespace Mb.Application
 {
     public class ArticleCategoryApplication:IArticleCategoryApplication
     {
         private readonly IArticleCategoryRepository _repository;
+        private readonly IArticleCategoryValidatorServices _validatorServices;
 
         public ArticleCategoryApplication(IArticleCategoryRepository repository)
         {
@@ -34,14 +37,14 @@ namespace Mb.Application
 
         public void Create(CreateArticleCategory Command)
         {
-            var newArticleCategory = new Domain.ArticleCategory(Command.Title);
+            var newArticleCategory = new ArticleCategory(Command.Title, _validatorServices);
             _repository.Create(newArticleCategory);
         }
 
         public void Rename(RenameArticleCategory command)
         {
             var articleCategory = _repository.GetBy(command.Id);
-            articleCategory.Rename(command.Title);
+            articleCategory.Rename(command.Title, _validatorServices);
             _repository.Save();
         }
 
