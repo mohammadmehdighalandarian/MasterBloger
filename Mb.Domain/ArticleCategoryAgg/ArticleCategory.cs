@@ -1,4 +1,6 @@
-﻿using Mb.Domain.ArticleCategoryAgg.Services;
+﻿using System.Collections.ObjectModel;
+using Mb.Domain.ArticleAgg;
+using Mb.Domain.ArticleCategoryAgg.Services;
 
 namespace Mb.Domain.ArticleCategoryAgg
 {
@@ -8,6 +10,8 @@ namespace Mb.Domain.ArticleCategoryAgg
         public string Title { get; private set; }
         public bool IsDeleted { get; private set; }
         public DateTime CreationDate { get; private set; }
+        public Collection<Article> articles { get; set; }=new Collection<Article>();
+        
 
         public ArticleCategory(string title,IArticleCategoryValidatorServices validator)
         {

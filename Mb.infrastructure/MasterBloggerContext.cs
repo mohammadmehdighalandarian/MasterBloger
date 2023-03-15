@@ -1,5 +1,5 @@
 ﻿using Mb.Domain.ArticleCategoryAgg;
-using Mb.infrastructure.Mapping;
+using Mb.infrastructure.EFCore.Mapping;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mb.infrastructure
