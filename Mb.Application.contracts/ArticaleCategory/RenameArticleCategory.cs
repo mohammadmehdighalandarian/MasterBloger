@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Mb.Application.contracts.ArticaleCategory
 {
-    internal class EditArticleCategory
+    public class RenameArticleCategory:CreateArticleCategory
     {
+        public long Id { get; set; }
     }
 }

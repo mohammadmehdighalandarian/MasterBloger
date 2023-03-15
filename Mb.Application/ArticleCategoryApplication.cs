@@ -8,13 +8,13 @@ using Mb.Domain.Repository;
 
 namespace Mb.Application
 {
-    public class ArticleCategory:IArticleCategoryApplication
+    public class ArticleCategoryApplication:IArticleCategoryApplication
     {
         private readonly IArticleCategoryRepository _repository;
 
-        public ArticleCategory(IArticleCategoryRepository repository)
+        public ArticleCategoryApplication(IArticleCategoryRepository repository)
         {
-            this._repository = repository;
+            _repository = repository;
         }
 
         public List<ArticleCategoryViewModel> Get_Alllist()
@@ -36,5 +36,30 @@ namespace Mb.Application
 
             return Result;
         }
-    }
+
+        public void Create(CreateArticleCategory Command)
+        {
+            var NewArticleCategory = new Domain.ArticleCategory(Command.Title);
+            _repository.Create(NewArticleCategory);
+        }
+
+        public void Rename(RenameArticleCategory command)
+        {
+            var articleCategory = _repository.GetBy(command.Id);
+            articleCategory.Rename(command.Title);
+            _repository.Save();
+        }
+
+        public RenameArticleCategory Get(long id)
+        {
+            var articleCategory= _repository.GetBy(id);
+
+            return new RenameArticleCategory
+            {
+                Id = articleCategory.Id,
+                Title = articleCategory.Title,
+            };
+
+        }
+    }   
 }

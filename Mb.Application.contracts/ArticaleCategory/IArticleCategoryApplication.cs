@@ -6,7 +6,8 @@ public interface IArticleCategoryApplication
 
     void Create(CreateArticleCategory Command);
 
-    void Edit();
-    
+    void Rename(RenameArticleCategory command);
+
+    RenameArticleCategory Get(long id);
 
 }
