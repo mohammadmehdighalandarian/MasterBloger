@@ -1,6 +1,6 @@
 ﻿using Mb.Application;
 using Mb.Application.contracts.ArticaleCategory;
-using Mb.Domain.Repository;
+using Mb.Domain.ArticleCategoryAgg.Repository;
 using Mb.infrastructure;
 using Mb.infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;

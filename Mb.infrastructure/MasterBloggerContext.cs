@@ -1,4 +1,4 @@
-﻿using Mb.Domain;
+﻿using Mb.Domain.ArticleCategoryAgg;
 using Mb.infrastructure.Mapping;
 using Microsoft.EntityFrameworkCore;
 

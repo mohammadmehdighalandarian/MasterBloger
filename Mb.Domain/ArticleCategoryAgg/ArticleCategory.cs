@@ -1,4 +1,4 @@
-﻿namespace Mb.Domain
+﻿namespace Mb.Domain.ArticleCategoryAgg
 {
     public class ArticleCategory
     {
@@ -10,13 +10,23 @@
         public ArticleCategory(string title)
         {
             Title = title;
-            IsDeleted=false;
+            IsDeleted = false;
             CreationDate = DateTime.Now;
         }
 
         public void Rename(string title)
         {
-            Title=title;
+            Title = title;
+        }
+
+        public void Remove()
+        {
+            IsDeleted = true;
+        }
+
+        public void Activate()
+        {
+            IsDeleted = false;
         }
     }
 }

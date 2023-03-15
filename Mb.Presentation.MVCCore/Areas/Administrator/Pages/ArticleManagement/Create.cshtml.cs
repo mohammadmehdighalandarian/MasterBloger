@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Permissions;
-using MB.Application.Contracts.Article;
-using MB.Application.Contracts.ArticleCategory;
+using Mb.Application.contracts.ArticaleCategory;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -24,7 +23,7 @@ namespace MB.Presentation.MVCCore.Areas.Administrator.Pages.ArticleManagement
 
         public void OnGet()
         {
-            ArticleCategories = _articleCategoryApplication.List()
+            ArticleCategories = _articleCategoryApplication.Get_All_list()
                 .Select(x => new SelectListItem(x.Title, x.Id.ToString())).ToList();
         }
 

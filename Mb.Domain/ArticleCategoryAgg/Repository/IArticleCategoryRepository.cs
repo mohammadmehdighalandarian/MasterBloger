@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Mb.Application.contracts.ArticaleCategory;
 
-namespace Mb.Domain.Repository
+namespace Mb.Domain.ArticleCategoryAgg.Repository
 {
     public interface IArticleCategoryRepository
     {
-        List<ArticleCategory>Get_all_Articles();
+        List<ArticleCategory> Get_all_Articles();
 
         void Create(ArticleCategory command);
 

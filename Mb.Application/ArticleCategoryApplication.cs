@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Mb.Application.contracts.ArticaleCategory;
+﻿using Mb.Application.contracts.ArticaleCategory;
 using Mb.Domain.Repository;
 
 namespace Mb.Application
@@ -17,14 +12,14 @@ namespace Mb.Application
             _repository = repository;
         }
 
-        public List<ArticleCategoryViewModel> Get_Alllist()
+        public List<ArticleCategoryViewModel> Get_All_list()
         {
-            var Articles = _repository.Get_all_Articles();
-            var Result=new List<ArticleCategoryViewModel>();
+            var articles = _repository.Get_all_Articles();
+            var result=new List<ArticleCategoryViewModel>();
 
-            foreach (var Article in Articles)
+            foreach (var Article in articles)
             {
-                Result.Add(new ArticleCategoryViewModel
+                result.Add(new ArticleCategoryViewModel
                 {
                     Id = Article.Id,
                     Title = Article.Title,
@@ -34,13 +29,13 @@ namespace Mb.Application
                 });
             }
 
-            return Result;
+            return result;
         }
 
         public void Create(CreateArticleCategory Command)
         {
-            var NewArticleCategory = new Domain.ArticleCategory(Command.Title);
-            _repository.Create(NewArticleCategory);
+            var newArticleCategory = new Domain.ArticleCategory(Command.Title);
+            _repository.Create(newArticleCategory);
         }
 
         public void Rename(RenameArticleCategory command)
@@ -60,6 +55,20 @@ namespace Mb.Application
                 Title = articleCategory.Title,
             };
 
+        }
+
+        public void Delete(long id)
+        {
+            var articleCategory=_repository.GetBy(id);
+            articleCategory.Remove();
+            _repository.Save();
+        }
+
+        public void Activated(long id)
+        {
+            var articleCategory = _repository.GetBy(id);
+            articleCategory.Activate();
+            _repository.Save();
         }
     }   
 }

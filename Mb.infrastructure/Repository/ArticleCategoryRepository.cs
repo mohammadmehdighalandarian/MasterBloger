@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Mb.Application.contracts.ArticaleCategory;
-using Mb.Domain;
-using Mb.Domain.Repository;
+using Mb.Domain.ArticleCategoryAgg;
+using Mb.Domain.ArticleCategoryAgg.Repository;
 
 namespace Mb.infrastructure.Repository
 {

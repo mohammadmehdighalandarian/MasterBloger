@@ -17,19 +17,19 @@ namespace MB.Presentation.MVCCore.Areas.Administrator.Pages.ArticleCategoryManag
 
         public void OnGet()
         {
-            ArticleCategories = _articleCategoryApplication.Get_Alllist();
+            ArticleCategories = _articleCategoryApplication.Get_All_list();
         }
 
-        //public RedirectToPageResult OnPostRemove(long id)
-        //{
-        //    _articleCategoryApplication.Remove(id);
-        //    return RedirectToPage("./List");
-        //}
+        public RedirectToPageResult OnPostRemove(long id)
+        {
+            _articleCategoryApplication.Delete(id);
+            return RedirectToPage("./List");
+        }
 
-        //public RedirectToPageResult OnPostActivate(long id)
-        //{
-        //    _articleCategoryApplication.Activate(id);
-        //    return RedirectToPage("./List");
-        //}
+        public RedirectToPageResult OnPostActivate(long id)
+        {
+            _articleCategoryApplication.Activated(id);
+            return RedirectToPage("./List");
+        }
     }
 }
