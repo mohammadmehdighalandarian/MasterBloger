@@ -16,5 +16,9 @@ namespace Mb.Application.contracts.Article
 
         void Edit(EditArticle Command);
 
+        void Remove(long id);
+
+        void Restore(long id);
+
     }
 }

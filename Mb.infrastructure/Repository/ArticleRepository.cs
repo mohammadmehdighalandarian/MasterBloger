@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Mb.Domain.ArticleAgg;
+﻿using Mb.Domain.ArticleAgg;
 using Mb.Domain.ArticleAgg.Repository;
 using Mb.Domain.ArticleCategoryAgg.Services;
 

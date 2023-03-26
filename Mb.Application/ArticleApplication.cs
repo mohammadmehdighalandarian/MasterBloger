@@ -67,7 +67,21 @@ namespace Mb.Application
         public void Edit(EditArticle Command)
         {
             var Article = _articleRepository.Get_BY_Id(Command.id);
-            Article.Edit(Command.Title, Command.ShortDiscreption, Command.Image, Command.Content, 1);
+            Article.Edit(Command.Title, Command.ShortDiscreption, Command.Image, Command.Content, Command.ArticleCategoryId);
+            _articleRepository.Save();
+        }
+
+        public void Remove(long id)
+        {
+            var Article = _articleRepository.Get_BY_Id(id);
+            Article.Remove();
+            _articleRepository.Save();
+        }
+
+        public void Restore(long id)
+        {
+            var Article = _articleRepository.Get_BY_Id(id);
+            Article.Restore();
             _articleRepository.Save();
         }
     }

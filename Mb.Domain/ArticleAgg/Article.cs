@@ -47,5 +47,15 @@ namespace Mb.Domain.ArticleAgg
             Context = context;
             ArticleCategoryId = articleCategoryId;
         }
+
+        public void Remove()
+        {
+            IsDeleted=true;
+        }
+
+        public void Restore()
+        {
+            IsDeleted = false;
+        }
     }
 }
