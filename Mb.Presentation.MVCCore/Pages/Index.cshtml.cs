@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 //using MB.Infrastructure.Query;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MB.Presentation.MVCCore.Pages
+namespace Mb.Presentation.MVCCore.Pages
 {
     public class IndexModel : PageModel
     {

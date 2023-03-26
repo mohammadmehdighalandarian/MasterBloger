@@ -1,6 +1,7 @@
 ﻿using Mb.Application.contracts.Article;
 using Mb.Domain.ArticleAgg;
 using Mb.Domain.ArticleAgg.Repository;
+using Mb.Domain.ArticleAgg.Services;
 using Mb.Domain.ArticleCategoryAgg.Repository;
 
 namespace Mb.Application
@@ -9,14 +10,15 @@ namespace Mb.Application
     {
         private readonly IArticleRepository _articleRepository;
         private readonly IArticleCategoryRepository _categoryRepository;
+        private readonly IArticleValidatorServices _validatorServices;
 
-
-        public ArticleApplication(IArticleRepository articleRepository, IArticleCategoryRepository categoryRepository)
+        public ArticleApplication(IArticleRepository articleRepository, IArticleCategoryRepository categoryRepository, IArticleValidatorServices validatorServices)
         {
             _articleRepository = articleRepository;
             _categoryRepository = categoryRepository;
+            _validatorServices = validatorServices;
         }
-
+        
         public List<ArticleViewModel> Get_All_Articles()
         {
             var Article = _articleRepository.Get_all_Articles();
@@ -41,7 +43,7 @@ namespace Mb.Application
         {
             var articleCategory = _articleRepository.Get(command.ArticleCategoryId);
             var Article = new Article(command.Title, command.ShortDiscreption, command.Image, command.Context, command.ArticleCategoryId);
-
+            Article.IsExist(_validatorServices,command.Title);
             _articleRepository.Create(Article);
 
         }

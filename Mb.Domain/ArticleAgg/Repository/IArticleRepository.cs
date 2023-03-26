@@ -12,6 +12,8 @@ namespace Mb.Domain.ArticleAgg.Repository
 
         ArticleCategory Get(long id);
 
+        bool Exist(string titel);
+
         void Save();
     }
 }

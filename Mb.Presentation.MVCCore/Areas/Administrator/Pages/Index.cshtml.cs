@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 
-namespace Onion.Presentation.Areas.Administrator.Pages
+namespace Mb.Presentation.MVCCore.Areas.Administrator.Pages
 {
     public class IndexModel : PageModel
     {

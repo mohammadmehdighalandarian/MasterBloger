@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mb.Domain.ArticleAgg.Services;
 using Mb.Domain.ArticleCategoryAgg.Services;
 
 namespace Mb.Domain.ArticleAgg
@@ -30,6 +32,8 @@ namespace Mb.Domain.ArticleAgg
 
         public Article(string title, string shortDiscreption, string image, string context, long articleCategoryId)
         {
+            Validate(title, articleCategoryId);
+
             Title = title;
             ShortDiscreption = shortDiscreption;
             Image = image;
@@ -39,8 +43,21 @@ namespace Mb.Domain.ArticleAgg
             IsDeleted=false;
         }
 
+        public void IsExist(IArticleValidatorServices validator, string title)
+        {
+            validator.ArticleExist(title);
+        }
+        private static void Validate(string title, long articleCategoryId)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+                throw new Exception("Fill the Title");
+            if (articleCategoryId == 0)
+                throw new ArgumentOutOfRangeException();
+        }
+
         public void Edit(string title, string shortDiscreption, string image, string context, long articleCategoryId)
         {
+            Validate(title, articleCategoryId);
             Title = title;
             ShortDiscreption = shortDiscreption;
             Image = image;

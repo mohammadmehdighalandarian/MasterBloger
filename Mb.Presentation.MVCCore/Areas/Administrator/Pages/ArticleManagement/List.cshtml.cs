@@ -1,9 +1,8 @@
-using System.Collections.Generic;
 using Mb.Application.contracts.Article;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MB.Presentation.MVCCore.Areas.Administrator.Pages.ArticleManagement
+namespace Mb.Presentation.MVCCore.Areas.Administrator.Pages.ArticleManagement
 {
     public class ListModel : PageModel
     {
