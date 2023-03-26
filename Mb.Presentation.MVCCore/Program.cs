@@ -1,7 +1,6 @@
 using Mb.Application.contracts.ArticaleCategory;
 using Mb.Application;
 using Mb.Domain.ArticleCategoryAgg.Repository;
-using Mb.infrastructure.Repository;
 using Mb.Infrastructure.Core;
 
 var builder = WebApplication.CreateBuilder(args);

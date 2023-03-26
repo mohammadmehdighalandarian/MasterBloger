@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Mb.Application.contracts.ArticaleCategory;
-using Mb.Domain.ArticleCategoryAgg;
-using Mb.Domain.ArticleCategoryAgg.Repository;
+﻿using Mb.Domain.ArticleCategoryAgg.Repository;
+using Mb.Domain.ArticleCategoryAgg.Services;
 
-namespace Mb.infrastructure.Repository
+namespace Mb.infrastructure.EFCore.Repository
 {
     public class ArticleCategoryRepository:IArticleCategoryRepository
     {

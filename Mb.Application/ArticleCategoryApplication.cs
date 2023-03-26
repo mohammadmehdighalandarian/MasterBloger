@@ -10,9 +10,10 @@ namespace Mb.Application
         private readonly IArticleCategoryRepository _repository;
         private readonly IArticleCategoryValidatorServices _validatorServices;
 
-        public ArticleCategoryApplication(IArticleCategoryRepository repository)
+        public ArticleCategoryApplication(IArticleCategoryRepository repository, IArticleCategoryValidatorServices validatorServices)
         {
             _repository = repository;
+            _validatorServices = validatorServices;
         }
 
         public List<ArticleCategoryViewModel> Get_All_list()
@@ -37,7 +38,8 @@ namespace Mb.Application
 
         public void Create(CreateArticleCategory Command)
         {
-            var newArticleCategory = new ArticleCategory(Command.Title, _validatorServices);
+            var newArticleCategory = new ArticleCategory(Command.Title);
+            newArticleCategory.IsExist(_validatorServices, Command.Title);
             _repository.Create(newArticleCategory);
         }
 

@@ -1,4 +1,4 @@
-﻿using Mb.Domain.ArticleCategoryAgg;
+﻿using Mb.Domain.ArticleCategoryAgg.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

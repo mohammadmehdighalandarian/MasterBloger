@@ -1,8 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using Mb.Domain.ArticleAgg;
-using Mb.Domain.ArticleCategoryAgg.Services;
 
-namespace Mb.Domain.ArticleCategoryAgg
+namespace Mb.Domain.ArticleCategoryAgg.Services
 {
     public class ArticleCategory
     {
@@ -10,18 +9,23 @@ namespace Mb.Domain.ArticleCategoryAgg
         public string Title { get; private set; }
         public bool IsDeleted { get; private set; }
         public DateTime CreationDate { get; private set; }
-        public Collection<Article> articles { get; set; }=new Collection<Article>();
-        
+        public Collection<Article> articles { get; set; } = new Collection<Article>();
 
-        public ArticleCategory(string title,IArticleCategoryValidatorServices validator)
+
+        public ArticleCategory(string title)
         {
-            validator.ArticleCategoryExist(title);
+            if (string.IsNullOrWhiteSpace(title))
+                throw new Exception();
             Title = title;
             IsDeleted = false;
             CreationDate = DateTime.Now;
         }
 
-        public void Rename(string title,IArticleCategoryValidatorServices validator)
+        public void IsExist(IArticleCategoryValidatorServices validator, string title)
+        {
+            validator.ArticleCategoryExist(title);
+        }
+        public void Rename(string title, IArticleCategoryValidatorServices validator)
         {
             validator.ArticleCategoryExist(title);
             Title = title;

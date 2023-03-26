@@ -1,4 +1,6 @@
-﻿namespace Mb.Domain.ArticleCategoryAgg.Repository
+﻿using Mb.Domain.ArticleCategoryAgg.Services;
+
+namespace Mb.Domain.ArticleCategoryAgg.Repository
 {
     public interface IArticleCategoryRepository
     {
