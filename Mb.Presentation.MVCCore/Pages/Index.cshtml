@@ -8,33 +8,33 @@
     <div class="container">
         <div class="row">
 
-            @*@foreach (var article in Model)
+            @foreach (var article in Model.Articles)
             {
                 <div class="post col-xl-6">
                     <div class="post-thumbnail">
-                        <a asp-page="/ArticleDetails" asp-route-id="@article.Id">
-                            <img src="@article.Image" alt="@article.Title" title="@article.Title" class="img-fluid">
+                        <a asp-area="Administrator" asp-page="./list" asp-route-id="@article.Id">
+                            <img src="@article.Image" alt="@article.Titel" title="@article.Titel" class="img-fluid">
                         </a>
                     </div>
                     <div class="post-details">
                         <div class="post-meta d-flex justify-content-between">
                             <div class="date meta-last">@article.CreationDate</div>
                             <div class="category">
-                                <a asp-page="/ArticleDetails" asp-route-id="@article.Id">@article.ArticleCategoryApplication</a>
+                                <a asp-page="/ArticleDetails" asp-route-id="@article.Id">@article.ArticleCategory</a>
                             </div>
                         </div>
                         <a asp-page="/ArticleDetails" asp-route-id="@article.Id">
-                            <h3 class="h4">@article.Title</h3>
+                            <h3 class="h4">@article.Titel</h3>
                         </a>
                         <p class="text-muted">
-                            @article.ShortDescription
+                            @article.ShortDiscreption
                         </p>
-                        <footer class="post-footer d-flex align-items-center">
+                        @*<footer class="post-footer d-flex align-items-center">
                             <div class="comments meta-last"><i class="icon-comment"></i>@article.CommentsCount</div>
-                        </footer>
+                        </footer>*@
                     </div>
                 </div>
-            }*@
+            }
 
         </div>
     </div>
