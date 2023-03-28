@@ -14,6 +14,7 @@ public class ArticleQuery : IArticleQuery
     public List<ArticleQueryView> Get_All_Articles()
     {
         return _context.Articles.Include(x => x.ArticleCategory)
+            .Where(x=>x.IsDeleted==false)
             .Select(x => new ArticleQueryView
             {
                 Id = x.id,
