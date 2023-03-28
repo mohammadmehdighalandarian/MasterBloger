@@ -1,15 +1,14 @@
-using Mb.infrastructure.Query;
+﻿using Mb.infrastructure.Query;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Mb.Presentation.MVCCore.Pages.Shared
+namespace MB.Presentation.MVCCore.Pages
 {
     public class ArticleDetailsModel : PageModel
     {
         public ArticleQueryView Article { get; set; }
 
         private readonly IArticleQuery _articleQuery;
-
 
         public ArticleDetailsModel(IArticleQuery articleQuery)
         {
@@ -20,5 +19,7 @@ namespace Mb.Presentation.MVCCore.Pages.Shared
         {
             Article = _articleQuery.Get_ById(id);
         }
+
+      
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Mb.infrastructure.Query;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-//using MB.Infrastructure.Query;
+
 
 namespace Mb.Presentation.MVCCore.Pages
 {

@@ -25,8 +25,12 @@ namespace Mb.Infrastructure.Core
             service.AddTransient<IArticleValidatorServices, ArticleValidatoreservices>();
             service.AddTransient<IArticleQuery, ArticleQuery>();
 
+            #region DBcontext
+
             service.AddDbContext<MasterBloggerContext>(options =>
                 options.UseSqlServer(connectionString));
+
+            #endregion
 
         }
     }
