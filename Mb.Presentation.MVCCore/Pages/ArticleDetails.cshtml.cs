@@ -1,8 +1,7 @@
 ﻿using Mb.infrastructure.Query;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MB.Presentation.MVCCore.Pages
+namespace Mb.Presentation.MVCCore.Pages
 {
     public class ArticleDetailsModel : PageModel
     {
@@ -20,6 +19,6 @@ namespace MB.Presentation.MVCCore.Pages
             Article = _articleQuery.Get_ById(id);
         }
 
-      
+
     }
 }
