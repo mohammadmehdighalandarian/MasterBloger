@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Mb.infrastructure.EFCore.Mapping
 {
-    public class ArticleMapping:IEntityTypeConfiguration<Article>
+    public class ArticleMapping : IEntityTypeConfiguration<Article>
     {
         public void Configure(EntityTypeBuilder<Article> builder)
         {
@@ -22,6 +22,11 @@ namespace Mb.infrastructure.EFCore.Mapping
             builder.HasOne(x => x.ArticleCategory)
                 .WithMany(x => x.articles)
                 .HasForeignKey(x => x.ArticleCategoryId);
+
+            builder.HasMany(x => x.Comments)
+                .WithOne(x => x.Article)
+                .HasForeignKey(x => x.ArticleId);
+
 
             #endregion
         }

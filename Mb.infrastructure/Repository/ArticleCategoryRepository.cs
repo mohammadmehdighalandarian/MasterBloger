@@ -17,6 +17,7 @@ namespace Mb.infrastructure.EFCore.Repository
             return _context.ArticleCategories.ToList();
         }
 
+
         public void Create(ArticleCategory command)
         {
             _context.ArticleCategories.Add(command);

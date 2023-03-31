@@ -32,7 +32,8 @@ namespace Mb.Application
                     CreationDate = item.CreationDate,
                     IsDeleted = item.IsDeleted,
                     Title = item.Title,
-                    ArticleCategory = _categoryRepository.GetBy(item.ArticleCategoryId).Title
+                    ArticleCategory = _categoryRepository.GetBy(item.ArticleCategoryId).Title,
+                    Comments = _articleRepository.Get_Comment_Of_Article(item.id)
                 });
             }
 
