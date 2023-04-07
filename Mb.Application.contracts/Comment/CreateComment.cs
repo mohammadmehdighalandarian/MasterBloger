@@ -2,12 +2,12 @@
 {
     public class CreateComment
     {
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
-        public string Email { get; private set; }
+        public string Email { get; set; }
 
-        public string Message { get; private set; }
+        public string Message { get; set; }
 
-        public long ArticleId { get; private set; }
+        public long ArticleId { get; set; }
     }
 }

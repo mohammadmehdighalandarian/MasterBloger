@@ -14,7 +14,7 @@ namespace Mb.infrastructure.EFCore.Mapping
         public void Configure(EntityTypeBuilder<Article> builder)
         {
             builder.ToTable("Article");
-            builder.HasKey(x => x.id);
+            builder.HasKey(x => x.Id);
 
 
             #region Relation

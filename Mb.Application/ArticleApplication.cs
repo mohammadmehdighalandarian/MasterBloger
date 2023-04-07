@@ -28,12 +28,11 @@ namespace Mb.Application
             {
                 ArticlesVM.Add(new ArticleViewModel
                 {
-                    id = item.id,
+                    id = item.Id,
                     CreationDate = item.CreationDate,
                     IsDeleted = item.IsDeleted,
                     Title = item.Title,
                     ArticleCategory = _categoryRepository.GetBy(item.ArticleCategoryId).Title,
-                    Comments = _articleRepository.Get_Comment_Of_Article(item.id)
                 });
             }
 
@@ -54,7 +53,7 @@ namespace Mb.Application
             var Article = _articleRepository.Get_BY_Id(id);
             var article = new EditArticle()
             {
-                id = Article.id,
+                id = Article.Id,
                 Title = Article.Title,
                 ArticleCategory = _categoryRepository.GetBy(Article.ArticleCategoryId).Title,
                 Content = Article.Context,

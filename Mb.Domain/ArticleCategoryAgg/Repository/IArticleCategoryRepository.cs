@@ -1,5 +1,4 @@
-﻿using Mb.Domain.ArticleCategoryAgg.Services;
-using Mb.Domain.CommentAgg;
+﻿using Mb.Domain.CommentAgg;
 
 namespace Mb.Domain.ArticleCategoryAgg.Repository
 {

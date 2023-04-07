@@ -15,24 +15,7 @@ namespace Mb.Application
 
         public List<CommentViewModel> Get_All_Comment()
         {
-            var Comment = _commentRepository.Get_All_Comments();
-            var CommentVM=new List<CommentViewModel>();
-
-            foreach (var item in Comment)
-            {
-                CommentVM.Add(new CommentViewModel
-                {
-                    Id = item.Id,
-                    Name = item.Name,
-                    ArticleName = item.Article.Title,
-                    Email = item.Email,
-                    Message = item.Message,
-                    Status = item.Status,
-                    CreationDate = item.CreationDate.ToString()
-                });
-            }
-
-            return CommentVM;
+            return _commentRepository.Get_All_Comments();
         }
 
         public void Create(CreateComment command)

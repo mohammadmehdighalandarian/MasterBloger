@@ -4,15 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using _01_Framwork.Domain;
 using Mb.Domain.ArticleAgg.Services;
-using Mb.Domain.ArticleCategoryAgg.Services;
+using Mb.Domain.ArticleCategoryAgg;
 using Mb.Domain.CommentAgg;
 
 namespace Mb.Domain.ArticleAgg
 {
-    public class Article
+    public class Article:DomainBase<long>
     {
-        public long id { get; }
 
         public string Title { get; private set; }
 
@@ -24,13 +24,12 @@ namespace Mb.Domain.ArticleAgg
 
         public bool IsDeleted { get; private set; }
 
-        public DateTime CreationDate { get; private set; }
 
         public long ArticleCategoryId { get; private set; }
 
         public ArticleCategory ArticleCategory { get;  set; }
 
-        public List<Comment> Comments { get; private set; }=new List<Comment>();
+        public ICollection<Comment> Comments { get; private set; }=new List<Comment>();
 
 
         public Article(string title, string shortDiscreption, string image, string context, long articleCategoryId)
@@ -42,7 +41,6 @@ namespace Mb.Domain.ArticleAgg
             Image = image;
             Context = context;
             ArticleCategoryId= articleCategoryId;
-            CreationDate =DateTime.Now;
             IsDeleted=false;
         }
 

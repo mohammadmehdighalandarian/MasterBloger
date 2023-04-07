@@ -1,14 +1,17 @@
 ﻿using System.Collections.ObjectModel;
+using _01_Framwork.Domain;
 using Mb.Domain.ArticleAgg;
+using Mb.Domain.ArticleCategoryAgg.Services;
 
-namespace Mb.Domain.ArticleCategoryAgg.Services
+namespace Mb.Domain.ArticleCategoryAgg
 {
-    public class ArticleCategory
+    public class ArticleCategory:DomainBase<long>
     {
-        public long Id { get; private set; }
+
         public string Title { get; private set; }
+
         public bool IsDeleted { get; private set; }
-        public DateTime CreationDate { get; private set; }
+
         public Collection<Article> articles { get; set; } = new Collection<Article>();
 
 
@@ -18,7 +21,6 @@ namespace Mb.Domain.ArticleCategoryAgg.Services
                 throw new Exception();
             Title = title;
             IsDeleted = false;
-            CreationDate = DateTime.Now;
         }
 
         public void IsExist(IArticleCategoryValidatorServices validator, string title)

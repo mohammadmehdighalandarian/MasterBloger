@@ -2,13 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>_01_Framwork</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\01_Framwork\01_Framwork.csproj" />
-    <ProjectReference Include="..\Mb.Application.contracts\Mb.Application.contracts.csproj" />
-  </ItemGroup>
 
 </Project>

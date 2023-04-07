@@ -1,5 +1,5 @@
-﻿using Mb.Domain.ArticleCategoryAgg.Repository;
-using Mb.Domain.ArticleCategoryAgg.Services;
+﻿using Mb.Domain.ArticleCategoryAgg;
+using Mb.Domain.ArticleCategoryAgg.Repository;
 
 namespace Mb.infrastructure.EFCore.Repository
 {

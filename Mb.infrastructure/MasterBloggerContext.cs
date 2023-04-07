@@ -1,5 +1,5 @@
 ﻿using Mb.Domain.ArticleAgg;
-using Mb.Domain.ArticleCategoryAgg.Services;
+using Mb.Domain.ArticleCategoryAgg;
 using Mb.Domain.CommentAgg;
 using Mb.infrastructure.EFCore.Mapping;
 using Microsoft.EntityFrameworkCore;
@@ -19,9 +19,12 @@ namespace Mb.infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ArticleCategoryMapping());
-            modelBuilder.ApplyConfiguration(new ArticleMapping());
-            modelBuilder.ApplyConfiguration(new CommentMapping());
+            var assembly=typeof(ArticleMapping).Assembly;
+            modelBuilder.ApplyConfigurationsFromAssembly(assembly);
+
+            //modelBuilder.ApplyConfiguration(new ArticleCategoryMapping());
+            //modelBuilder.ApplyConfiguration(new ArticleMapping());
+            //modelBuilder.ApplyConfiguration(new CommentMapping());
 
             base.OnModelCreating(modelBuilder);
         }

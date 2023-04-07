@@ -1,6 +1,6 @@
 ﻿using Mb.Domain.ArticleAgg;
 using Mb.Domain.ArticleAgg.Repository;
-using Mb.Domain.ArticleCategoryAgg.Services;
+using Mb.Domain.ArticleCategoryAgg;
 using Mb.Domain.CommentAgg;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,16 +17,12 @@ namespace Mb.infrastructure.EFCore.Repository
 
         public List<Article> Get_all_Articles()
         {
-            return _context.Articles.ToList();
-        }
-
-        public List<Comment> Get_Comment_Of_Article(long articleId)
-        {
-            return _context.Comments
-                .Include(x => x.ArticleId == articleId)
+            return _context.Articles
+                .Include(x => x.Comments)
                 .ToList();
         }
 
+      
         public void Create(Article article)
         {
             _context.Articles.Add(article);
@@ -35,7 +31,7 @@ namespace Mb.infrastructure.EFCore.Repository
 
         public Article Get_BY_Id(long id)
         {
-            return _context.Articles.FirstOrDefault(x => x.id == id);
+            return _context.Articles.FirstOrDefault(x => x.Id == id);
         }
 
         public ArticleCategory Get(long id)

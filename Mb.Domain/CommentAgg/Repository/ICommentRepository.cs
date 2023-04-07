@@ -4,7 +4,7 @@ namespace Mb.Domain.CommentAgg.Repository
 {
     public interface ICommentRepository
     {
-        public List<Comment> Get_All_Comments();
+        public List<CommentViewModel> Get_All_Comments();
 
         public void Create(Comment comment);
 

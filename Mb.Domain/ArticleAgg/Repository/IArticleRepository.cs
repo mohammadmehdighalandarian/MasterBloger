@@ -1,4 +1,4 @@
-﻿using Mb.Domain.ArticleCategoryAgg.Services;
+﻿using Mb.Domain.ArticleCategoryAgg;
 using Mb.Domain.CommentAgg;
 
 namespace Mb.Domain.ArticleAgg.Repository
@@ -6,8 +6,6 @@ namespace Mb.Domain.ArticleAgg.Repository
     public interface IArticleRepository
     {
         List<Article> Get_all_Articles();
-
-        List<Comment> Get_Comment_Of_Article(long articleId);
 
         void Create(Article article);
 
